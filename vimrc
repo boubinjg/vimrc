@@ -68,6 +68,6 @@ autocmd TerminalWinOpen *
   \ endif
 
 " open terminal below all splits
-cabbrev bterm bo term
+cabbrev term bo term
 
 
