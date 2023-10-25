@@ -46,18 +46,28 @@ nnoremap <CR> :noh<CR><CR>:<backspace>
 "link plugins and whatnot
 so ~/.vim/plugins.vim
 so ~/.vim/plugin-config.vim
-so ~/.vim/autoclose.vim
+"so ~/.vim/autoclose.vim
 
 set mouse=a
 colorscheme nightfly
 
+
+" open terminal below all splits
+cabbrev term bo term
+set backspace=indent,eol,start
+
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+    \| exe "normal! g'\"" | endif
+endif
+
 "Language Specific Settings Go Here
 
 "different rules for python files
-au BufNewFile,BufRead *.py
-    \ set tabstop=4 |
-    \ set softtabstop=4 |
-    \ set shiftwidth=4 |
+"au BufNewFile,BufRead *.py
+"    \ set tabstop=4 |
+"   \ set softtabstop=4 |
+"    \ set shiftwidth=4 |
 
 "terminal behaviors
 autocmd TerminalWinOpen *
@@ -66,8 +76,4 @@ autocmd TerminalWinOpen *
   \   setlocal termwinsize=0x140 |
   \   setlocal nowrap |
   \ endif
-
-" open terminal below all splits
-cabbrev term bo term
-
 
