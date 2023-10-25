@@ -1,2 +1,3 @@
 cp vimrc ~/.vimrc
-cp -r vim ~/.vim
+mkdir ~/.vim
+cp -r vim/* ~/.vim
